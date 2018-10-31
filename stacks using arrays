@@ -1,0 +1,84 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+const int size = 100;
+class stck
+{
+    int arr[size];
+    int top = -1;
+public:
+    void push();
+    void pop();
+    void peek();
+    void print();
+};
+void stck::push()
+{
+    int n;
+    if(top == size)
+    {
+        cout<<"No space "<<endl;
+    }
+    else
+    {
+        cout<<"enter data u want to insert :";
+        cin>>n;
+        top++;
+        arr[top] =n;
+    }
+
+}
+
+void stck::pop()
+{
+    if(top == -1)
+    {
+        cout<<"undeflow"<<endl;
+    }
+    else
+    {
+        top --;
+    }
+
+}
+void stck::peek()
+{
+    if(top == -1)
+    {
+        cout<<"undeflow"<<endl;
+    }
+    else
+        cout<<"top element = "<<arr[top]<<endl;
+
+}
+int main()
+{
+    stck S;
+    int choice;
+    while(1)
+    {
+        cout<<"\nenter \n1 to push an element\n2 to pop an element\n3to peek element\n0 to exit :";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1 :
+            S.push();
+            break;
+        case 2:
+            S.pop();
+            break;
+        case 3:
+            S.peek();
+            break;
+
+        case 0:
+            exit(0);
+
+        }
+
+    }
+
+
+
+
+}
