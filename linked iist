@@ -1,0 +1,138 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+    int data=0;
+
+    struct node* link;
+};
+struct free
+{
+    int data;
+    struct free* next;
+
+};
+struct free* a1;
+struct free* a2;
+
+struct node* n1;
+struct node* n2;
+struct node* start=n1;
+
+struct free* avail=a1;
+void traverse()
+{
+    struct node* ptr;
+    ptr=start;
+    static int i=1;
+    while(ptr!=NULL)
+    {
+
+        cout<<"data at node"<<i<<"="<<ptr->data<<endl;
+        i++;
+        ptr=ptr->link;
+    }
+}
+
+void search(int num)
+{
+    struct node* n;
+    n= start;
+    while(n!=NULL)
+    {
+        static int i=1;
+        if(num == n->data)
+            cout<<"data is at node"<<"="<<i<<endl;
+        i++;
+        n=n->link;
+
+
+
+    }
+
+}
+
+void insertbeg()
+{
+    int d;
+    struct node* newnode;
+    newnode = new node();
+    cout<<"enter the data of new node created at beginning = ";
+    cin>>d;
+    newnode->data=d;
+    newnode->link=n1;
+    start=newnode;
+}
+void insertend()
+{
+    int d;
+    struct node* endnode;
+    endnode = new node();
+    cout<<"enter the data you want to add at the last node= ";
+    cin>>d;
+    endnode->data=d;
+    endnode->link=NULL;
+    n2->link=endnode;
+
+
+}
+
+void insrt(struct node* bfr,struct node* aftr)
+{
+    int d;
+    struct node* newnode;
+    newnode = new node();
+    cout<<"enter the data you want to insert in node after the given node  = ";
+    cin>>d;
+    newnode->data=d;
+    bfr->link=newnode;
+    newnode->link=aftr;
+
+
+}
+
+void del( struct node* D)
+{
+
+
+  avail = (struct free*)&D;
+
+    delete(D);
+}
+int main()
+{
+
+
+    n1 = new node();
+    n2 = new node();
+
+    n1->data = 5;
+    n1->link=n2;
+    n2->data = 4;
+    n2->link =NULL;
+    traverse();
+    insertbeg();
+    search(8);
+    traverse();
+    insertend();
+    traverse();
+    insrt(n1,n2);
+    traverse();
+    cout<<"after deletion"<<endl;
+
+    traverse();
+
+
+
+
+
+    return 0;
+
+
+
+
+
+
+
+}
