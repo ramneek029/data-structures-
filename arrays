@@ -1,0 +1,400 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+static int size = 10;
+class array
+{
+    int arr[20]= {2,5,7,4,2,8,66,43,87,46};
+
+
+
+public:
+    void output()
+    {
+        for(int i=0; i<size ; i++)
+            cout<<arr[i]<<"    ";
+
+    }
+    void insrt()
+    {
+        int pos,num;
+        cout<<"enter position at which u want to insert a number"<<endl;
+        cin>>pos;
+        cout<<"enter the value u want to insert"<<endl;
+        cin>>num;
+        for(int i=20; i>pos-1; i--)
+
+        {
+            arr[i]=arr[i-1];
+
+        }
+        arr[pos-1]=num;
+        size++;
+    }
+
+
+    void srch()
+    {
+        int n;
+        cout<<"\nenter the number you want to search"<<endl;
+        cin>>n;
+        int count;
+        for(int i=0; i<size; i++)
+        {
+            if(arr[i]==n){cout<<"number found at index :"<< i<<endl;count++;}
+        }
+        if(count==0)
+        cout<<"not found"<<endl;
+
+    }
+
+    void del()
+    {
+        int n;
+        cout<<"enter the position of number u want to delete";
+        cin>>n;
+        size--;
+        for (int i=n-1; i<size; i++)
+        {
+            arr[i]=arr[i+1];
+
+        }
+    }
+    void srt()
+    {
+        for(int i=0; i<size; i++)
+        {
+            for(int j=0; j<size-1; j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp;
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+    }
+};
+int main()
+{
+    array A;
+    cout<<"the array u have entered is:="<<endl;
+    A.output();
+    int choice;
+    while(1)
+    {
+        cout<<"\n(a)Enter 1 to insert new element\n(b)Enter 2 to sort the array\n(c)Enter 3 to search an element\n(d)Enter 4 to delete any element\n(e)Enter 0 to exit\n";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            A.insrt();
+            A.output();
+            break;
+        case 2:
+            cout<<"After sorting:=";
+            A.srt();
+            A.output();
+            break;
+        case 3 :
+            A.srch();
+            break;
+        case 4:
+            A.del();
+            A.output();
+            break;
+        case 0:
+            exit(0);
+        }
+    }
+    cout<<"\n";
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
