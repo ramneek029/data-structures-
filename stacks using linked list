@@ -1,0 +1,70 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+class stck
+{
+    int data;
+    stck *link;
+public:
+    void push();
+    void peek();
+    void pop();
+
+};
+stck * top = NULL;
+void stck::push()
+{
+    int n;
+    stck *newnode;
+    newnode = new stck;
+    cout<<"enter data u want to push :";
+    cin>>n;
+    newnode->data = n;
+    newnode->link =top;
+    top = newnode;
+
+}
+
+void stck::peek()
+{
+    if(top !=NULL)
+        cout<<"top element :"<<top->data<<endl;
+    else
+        cout<<"underflow"<<endl;
+}
+void stck::pop()
+{
+    if(top!= NULL)
+        top = top->link;
+    else
+        cout<<"underflow"<<endl;
+}
+
+
+int main()
+{
+    stck S;
+    int choice;
+    while(1)
+    {
+        cout<<"\nenter\n1 to push an element\n2 to peek\n3 to pop\n0 to exit  : ";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            S.push();
+            break;
+        case 2:
+            S.peek();
+            break;
+        case 3:
+            S.pop();
+            break;
+        case 0 :
+            exit(0);
+        }
+    }
+
+
+
+}
